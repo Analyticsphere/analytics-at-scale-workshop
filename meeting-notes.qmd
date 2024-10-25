@@ -5,5 +5,5 @@ listing:
   fields: [date, title, subtitle]
   sort: "date desc"
   categories: false
-  contents: "meeting-notes/*.qmd"
+  contents: "meeting-notes/*.md"
 ---
