@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -147,8 +147,8 @@ window.Quarto = {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/Analyticsphere/analytics-at-scale-workshop">
-            Website Source Code
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/analyticsphere/analytics-at-scale">
+            Source Code
             </a>
           </li>
           <li>
@@ -214,6 +214,17 @@ window.Quarto = {
  <span class="menu-text">RStudio Snippets</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">External Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://analyticsphere.github.io/c4cp/articles/count_by_period_vignette.html" class="sidebar-item-text sidebar-link">
@@ -258,22 +269,6 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
-  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
@@ -283,10 +278,10 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+Date
 </th>
 <th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+Title
 </th>
 <th>
 Subtitle
@@ -294,39 +289,6 @@ Subtitle
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1729814400000" data-listing-file-modified-sort="1729867261295" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10" data-listing-title-sort="Wiki" data-listing-filename-sort="2024-10-25.md">
-<td>
-<span class="listing-date">Oct 25, 2024</span>
-</td>
-<td>
-<a href="./meeting-notes/2024-10-25.html" class="title listing-title">Wiki</a>
-</td>
-<td>
-<span class="listing-subtitle">Introduce Analytics at Scale wiki</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1728604800000" data-listing-file-modified-sort="1729867261295" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27" data-listing-title-sort="Snippets" data-listing-filename-sort="2024-10-11.md">
-<td>
-<span class="listing-date">Oct 11, 2024</span>
-</td>
-<td>
-<a href="./meeting-notes/2024-10-11.html" class="title listing-title">Snippets</a>
-</td>
-<td>
-<span class="listing-subtitle">Custom code snippets in RStudio</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1729867261295" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="299" data-listing-title-sort="Counts by Period" data-listing-filename-sort="2024-10-04.md">
-<td>
-<span class="listing-date">Oct 4, 2024</span>
-</td>
-<td>
-<a href="./meeting-notes/2024-10-04.html" class="title listing-title">Counts by Period</a>
-</td>
-<td>
-<span class="listing-subtitle">Optimizing counts by period using DBI</span>
-</td>
-</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
