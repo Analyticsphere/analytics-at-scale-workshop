@@ -4,17 +4,17 @@
     "href": "meeting-notes.html",
     "title": "Meeting Notes",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nOct 4, 2024\n\n\nCounts by Period\n\n\nOptimizing counts by period using DBI\n\n\n\n\n\nNo matching items",
+    "text": "Date\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Meeting Notes"
     ]
   },
   {
-    "objectID": "meeting-notes/2024-10-04.html",
-    "href": "meeting-notes/2024-10-04.html",
-    "title": "Counts by Period",
+    "objectID": "meeting-notes/2024-10-11.html",
+    "href": "meeting-notes/2024-10-11.html",
+    "title": "Snippets",
     "section": "",
-    "text": "Attendees:\nJP, KD, BC, LO\n\n\nTutorial: Count by Period w/ DBI\nJP walked through the Count by Period w/ DBI tutorial to demonstrate some code he wrote to create counts by day, week, month, quarter or year using a DBI connection to avoid downloading the data until after aggreagion. This was intended to address some issues that Kelsey was having with the Biospecimen Report which has many tables that are aggregated by date, precluding her from using DBI easily.\n\n\nWhat do we want to use this workshop for?\n\nLeila:\n\nUse this to refactor code that is written, but need guidance to improve or use better practices\nDebug problem code together\n\nJake\n\nTackle big, recurring problems together\nWrite functions that can be reused\n\nKelsey:\n\nRefactoring code that has been re-used or passed repeatedly\nEven working with ChatGPT\nUsing SQL to do transformations THEN pulling the data down\n\nBrittany:\n\nSQL specific discussion.\nWe are all a little weaker in SQL.\n\nSQL:\n\nJoins\nUnions\nTransformations\nGroup By (with counts)\nUngroup after counts (when is this necessary and why)\nSQL Course on Coursera\n\n\n\n\nSecond Workshop:\n\nCode Snippets\n\n\n\nFuture Worshops:\n\nJoining Module 1 v1 and v2 Joining Module 2 v1 and v2"
+    "text": "Attendees\nJP, LO, BC\n\n\nNotes\n\nJP walked through a RStudio Snippets tutorial.\nLO and BC set up custom RStudio Snippets on their local machines."
   },
   {
     "objectID": "meeting-notes/2024-10-25.html",
@@ -132,11 +132,11 @@
     "text": "snippet header\n  ## Description =================================================================\n  # Title:        ${1:Script Title}\n  # Author:       ${2:Your Name}\n  # Date:         ${3:`r format(Sys.Date(), \"%Y-%m-%d\")`}\n  # Objective:    ${4:Script Purpose}\n  # GH-Issue:     ${5:Github Issue}\n\nsnippet query\n  bq_auth() # Authenticate with BigQuery\n  con &lt;- DBI::dbConnect(bigrquery::bigquery(), \n                        project=project, dataset=dataset, billing=billing))\n  \n  # Specify just the data we need with a query\n  dataset &lt;- \"FlatConnect\"\n  table   &lt;- \"participants_JP\"\n  tier    &lt;- \"nih-nci-dceg-connect-prod-6d04\"\n  sql &lt;- glue::glue(\n    \"\"\"\n          SELECT \n            Connect_ID,\n            token\n          FROM `{project}.{dataset}.{table}`\n        \"\"\")\n  \n  # Query the data and store as reference object\ndata &lt;- dbGetQuery(con, SQL)\n\nsnippet dev\n  \"nih-nci-dceg-connect-dev\"\n\nsnippet stg\n  \"nih-nci-dceg-connect-stg-5519\"\n\nsnippet prod\n  \"nih-nci-dceg-connect-prod-6d04\"\n\nsnippet exclusions\n  WHERE \n    p.d_821247024 = '197316935'      -- 'Verif Status' IS 'Verified'\n    AND p.d_747006172 != '353358909' -- 'Withdraw consent' IS NOT \"Yes\"\n    AND p.d_100767870 = '104430631'  -- 'All Base Surv Complete' = 'No'\n    AND p.d_685002411_d_994064239 != '353358909' -- 'Ref Base Survs' IS NOT \"Yes\"\n    AND p.d_987563196 != '353358909' -- 'Dead' IS NOT 'Yes'"
   },
   {
-    "objectID": "meeting-notes/2024-10-11.html",
-    "href": "meeting-notes/2024-10-11.html",
-    "title": "Snippets",
+    "objectID": "meeting-notes/2024-10-04.html",
+    "href": "meeting-notes/2024-10-04.html",
+    "title": "Counts by Period",
     "section": "",
-    "text": "Attendees\nJP, LO, BC\n\n\nNotes\n\nJP walked through a RStudio Snippets tutorial.\nLO and BC set up custom RStudio Snippets on their local machines."
+    "text": "Attendees:\nJP, KD, BC, LO\n\n\nTutorial: Count by Period w/ DBI\nJP walked through the Count by Period w/ DBI tutorial to demonstrate some code he wrote to create counts by day, week, month, quarter or year using a DBI connection to avoid downloading the data until after aggreagion. This was intended to address some issues that Kelsey was having with the Biospecimen Report which has many tables that are aggregated by date, precluding her from using DBI easily.\n\n\nWhat do we want to use this workshop for?\n\nLeila:\n\nUse this to refactor code that is written, but need guidance to improve or use better practices\nDebug problem code together\n\nJake\n\nTackle big, recurring problems together\nWrite functions that can be reused\n\nKelsey:\n\nRefactoring code that has been re-used or passed repeatedly\nEven working with ChatGPT\nUsing SQL to do transformations THEN pulling the data down\n\nBrittany:\n\nSQL specific discussion.\nWe are all a little weaker in SQL.\n\nSQL:\n\nJoins\nUnions\nTransformations\nGroup By (with counts)\nUngroup after counts (when is this necessary and why)\nSQL Course on Coursera\n\n\n\n\nSecond Workshop:\n\nCode Snippets\n\n\n\nFuture Worshops:\n\nJoining Module 1 v1 and v2 Joining Module 2 v1 and v2"
   },
   {
     "objectID": "index.html",
