@@ -1,0 +1,16 @@
+---
+title: Snippets
+subtitle: Custom code snippets in RStudio
+date: 2024-10-11
+author: Jake Peters
+---
+
+### Attendees
+
+JP, LO, BC
+
+### Notes
+
+-   JP walked through a [RStudio Snippets](../tutorials/snippets.qmd) tutorial.
+
+-   LO and BC set up custom RStudio Snippets on their local machines.

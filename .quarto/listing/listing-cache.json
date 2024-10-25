@@ -1,0 +1,7 @@
+{
+  "listingMap": {
+    "meeting-notes.qmd": [
+      "meeting-notes/*.qmd"
+    ]
+  }
+}

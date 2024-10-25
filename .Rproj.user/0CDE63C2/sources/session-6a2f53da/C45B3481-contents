@@ -1,0 +1,9 @@
+---
+title: "Meeting Notes"
+listing:
+  type: table
+  fields: [date, title, subtitle]
+  sort: "date desc"
+  categories: false
+  contents: "meeting-notes/*.qmd"
+---
