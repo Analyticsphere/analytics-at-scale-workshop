@@ -8,11 +8,8 @@ website:
     search: true
     tools:
       - icon: github
-        menu:
-          - text: Website Source Code
-            href: https://github.com/Analyticsphere/analytics-at-scale-workshop
-          - text: Analyticshpere
-            href: https://github.com/analyticsphere
+        text: Quarto Website Source Code
+        href: https://github.com/Analyticsphere/analytics-at-scale-workshop
 
   sidebar:
     style: "floating"
