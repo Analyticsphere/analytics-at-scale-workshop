@@ -90,48 +90,6 @@
     ]
   },
   {
-    "objectID": "snippets.html",
-    "href": "snippets.html",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "This tutorial demonstrates how to use both built-in and custom RStudio snippets within an R script. By leveraging snippets, you can streamline your coding process, reduce repetitive tasks, and maintain consistency across your projects.\n\n\n\nIntroduction to RStudio Snippets\nUsing Built-in Snippets\nCreating and Using Custom Snippets\n\n\n\n\nSnippets in RStudio are predefined blocks of code that can be quickly inserted into your scripts or markdown files. They enhance productivity by minimizing repetitive typing and ensuring consistency across your coding projects.\nIn this tutorial, we’ll explore how to utilize RStudio’s built-in snippets and create custom snippets tailored to your specific workflow.\n\n\n\n\nRStudio comes equipped with several built-in snippets that can be effortlessly used in .qmd files. Below are some commonly used built-in snippets along with examples of their usage.\n\n\nType fun and press Tab.\nfun my_function &lt;- function(arg1, arg2) {\n# Function body\n}\n\n\n\nType for and press Tab.\nfor (variable in vector) {\n    \n}\n\n\n\nType while and press Tab.\nwhile (condition) {\n    \n}\n\n\n\nType lapply and press Tab.\napply(array, margin, ...)\n\n\n\nType lapply and press Tab.\nlapply(list, function)\n\n\n\nType ts and press Tab.\n# Fri Oct 11 09:53:23 2024 ------------------------------\n\n\n\n\nGo to Tools &gt; Global Options &gt; Snippets &gt; Edit.\nThen paste the following at the bottom of the page and hit Apply\nsnippet dev\n  \"nih-nci-dceg-connect-dev\"\n\n\n\nGif showing the workflow of creating/using your own snippet\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that all code after the snippet &lt;name_of_snippet&gt; key word must be indented.\n\n\n\n\n\nsnippet header\n  ## Description =================================================================\n  # Title:        ${1:Script Title}\n  # Author:       ${2:Your Name}\n  # Date:         ${3:`r format(Sys.Date(), \"%Y-%m-%d\")`}\n  # Objective:    ${4:Script Purpose}\n  # GH-Issue:     ${5:Github Issue}\n\nsnippet query\n  bq_auth() # Authenticate with BigQuery\n  con &lt;- DBI::dbConnect(bigrquery::bigquery(), \n                        project=project, dataset=dataset, billing=billing))\n  \n  # Specify just the data we need with a query\n  dataset &lt;- \"FlatConnect\"\n  table   &lt;- \"participants_JP\"\n  tier    &lt;- \"nih-nci-dceg-connect-prod-6d04\"\n  sql &lt;- glue::glue(\n    \"\"\"\n          SELECT \n            Connect_ID,\n            token\n          FROM `{project}.{dataset}.{table}`\n        \"\"\")\n  \n  # Query the data and store as reference object\ndata &lt;- dbGetQuery(con, SQL)\n\nsnippet dev\n  \"nih-nci-dceg-connect-dev\"\n\nsnippet stg\n  \"nih-nci-dceg-connect-stg-5519\"\n\nsnippet prod\n  \"nih-nci-dceg-connect-prod-6d04\"\n\nsnippet exclusions\n  WHERE \n    p.d_821247024 = '197316935'      -- 'Verif Status' IS 'Verified'\n    AND p.d_747006172 != '353358909' -- 'Withdraw consent' IS NOT \"Yes\"\n    AND p.d_100767870 = '104430631'  -- 'All Base Surv Complete' = 'No'\n    AND p.d_685002411_d_994064239 != '353358909' -- 'Ref Base Survs' IS NOT \"Yes\"\n    AND p.d_987563196 != '353358909' -- 'Dead' IS NOT 'Yes'"
-  },
-  {
-    "objectID": "snippets.html#table-of-contents",
-    "href": "snippets.html#table-of-contents",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "Introduction to RStudio Snippets\nUsing Built-in Snippets\nCreating and Using Custom Snippets"
-  },
-  {
-    "objectID": "snippets.html#introduction-to-rstudio-snippets",
-    "href": "snippets.html#introduction-to-rstudio-snippets",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "Snippets in RStudio are predefined blocks of code that can be quickly inserted into your scripts or markdown files. They enhance productivity by minimizing repetitive typing and ensuring consistency across your coding projects.\nIn this tutorial, we’ll explore how to utilize RStudio’s built-in snippets and create custom snippets tailored to your specific workflow."
-  },
-  {
-    "objectID": "snippets.html#using-built-in-snippets",
-    "href": "snippets.html#using-built-in-snippets",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "RStudio comes equipped with several built-in snippets that can be effortlessly used in .qmd files. Below are some commonly used built-in snippets along with examples of their usage.\n\n\nType fun and press Tab.\nfun my_function &lt;- function(arg1, arg2) {\n# Function body\n}\n\n\n\nType for and press Tab.\nfor (variable in vector) {\n    \n}\n\n\n\nType while and press Tab.\nwhile (condition) {\n    \n}\n\n\n\nType lapply and press Tab.\napply(array, margin, ...)\n\n\n\nType lapply and press Tab.\nlapply(list, function)\n\n\n\nType ts and press Tab.\n# Fri Oct 11 09:53:23 2024 ------------------------------"
-  },
-  {
-    "objectID": "snippets.html#using-custom-snippets",
-    "href": "snippets.html#using-custom-snippets",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "Go to Tools &gt; Global Options &gt; Snippets &gt; Edit.\nThen paste the following at the bottom of the page and hit Apply\nsnippet dev\n  \"nih-nci-dceg-connect-dev\"\n\n\n\nGif showing the workflow of creating/using your own snippet\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that all code after the snippet &lt;name_of_snippet&gt; key word must be indented."
-  },
-  {
-    "objectID": "snippets.html#more-custom-snippets-to-try",
-    "href": "snippets.html#more-custom-snippets-to-try",
-    "title": "RStudio Snippets",
-    "section": "",
-    "text": "snippet header\n  ## Description =================================================================\n  # Title:        ${1:Script Title}\n  # Author:       ${2:Your Name}\n  # Date:         ${3:`r format(Sys.Date(), \"%Y-%m-%d\")`}\n  # Objective:    ${4:Script Purpose}\n  # GH-Issue:     ${5:Github Issue}\n\nsnippet query\n  bq_auth() # Authenticate with BigQuery\n  con &lt;- DBI::dbConnect(bigrquery::bigquery(), \n                        project=project, dataset=dataset, billing=billing))\n  \n  # Specify just the data we need with a query\n  dataset &lt;- \"FlatConnect\"\n  table   &lt;- \"participants_JP\"\n  tier    &lt;- \"nih-nci-dceg-connect-prod-6d04\"\n  sql &lt;- glue::glue(\n    \"\"\"\n          SELECT \n            Connect_ID,\n            token\n          FROM `{project}.{dataset}.{table}`\n        \"\"\")\n  \n  # Query the data and store as reference object\ndata &lt;- dbGetQuery(con, SQL)\n\nsnippet dev\n  \"nih-nci-dceg-connect-dev\"\n\nsnippet stg\n  \"nih-nci-dceg-connect-stg-5519\"\n\nsnippet prod\n  \"nih-nci-dceg-connect-prod-6d04\"\n\nsnippet exclusions\n  WHERE \n    p.d_821247024 = '197316935'      -- 'Verif Status' IS 'Verified'\n    AND p.d_747006172 != '353358909' -- 'Withdraw consent' IS NOT \"Yes\"\n    AND p.d_100767870 = '104430631'  -- 'All Base Surv Complete' = 'No'\n    AND p.d_685002411_d_994064239 != '353358909' -- 'Ref Base Survs' IS NOT \"Yes\"\n    AND p.d_987563196 != '353358909' -- 'Dead' IS NOT 'Yes'"
-  },
-  {
     "objectID": "meeting-notes/2024-10-04.html",
     "href": "meeting-notes/2024-10-04.html",
     "title": "Counts by Period",
