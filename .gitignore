@@ -9,4 +9,4 @@
 README_files/*
 _site/*
 README.html
-
+*.Rproj
