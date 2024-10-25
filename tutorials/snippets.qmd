@@ -143,7 +143,7 @@ snippet query
         """)
   
   # Query the data and store as reference object
-data <- dbGetQuery(con, SQL)
+  data <- dbGetQuery(con, SQL)
 
 snippet dev
   "nih-nci-dceg-connect-dev"
