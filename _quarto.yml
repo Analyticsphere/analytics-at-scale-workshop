@@ -21,12 +21,12 @@ website:
       - href: index.qmd
         text: Home
       - meeting-notes.qmd
-      - section: "Tutorials"
+      - section: Tutorials
+        contents: tutorials/*.*md
+      - section: External Tutorials
         contents: 
-          - tutorials/snippets.qmd
-          - text: "Count by Period w/ DBI "
+          - text: "Count by Period w/ DBI"
             url: https://analyticsphere.github.io/c4cp/articles/count_by_period_vignette.html
-
 
 format:
   html:
