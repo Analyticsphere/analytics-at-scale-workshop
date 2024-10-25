@@ -4,31 +4,30 @@ subtitle: Workshopping best practices for big data analytics in epidemiology
 ---
 
 ## Objective
-  - Hold weekly workshops **lead by team members** or invitees.
-  - **Produce resources** such as videos, tutorials and code resources from workshops on this resource page
-  - **Standardize** our analytic workflows.
-  
+
+-   Hold weekly workshops **lead by team members** or invitees.
+-   **Produce resources** such as videos, tutorials and code resources from workshops on this resource page
+-   **Standardize** our analytic workflows.
+
 ## Focus
 
-- Best practices for writing **robust**, **reproducible**, and **readable** R code
-- Optimization for big data as our data set grows
-- Tips and tricks for productivity 
-- Integration with cloud computing resources and data sources
-- Integrating R and SQL 
+-   Best practices for writing **robust**, **reproducible**, and **readable** R code
+-   Optimization for big data as our data set grows
+-   Tips and tricks for productivity
+-   Integration with cloud computing resources and data sources
+-   Integrating R and SQL
 
 ## Past topics
+
 DBI and dbplyr, code snippets
 
 ## Future workshop topics:
-functional programming, `renv`, GitHub, Docker, pipelines, Style Guides, 
-developing R packages, publishing data products, RStudio Snippets, `linter`, 
-`styler`, `rshiny`, `rix`, SQL & R, Quarto, Quarto Websites, Quarto Dashboards, 
-`plumber` APIs, data structures, JSON in R, mermaid diagrams, SQLlite, DuckDB,
-... 
+
+functional programming, `renv`, GitHub, Docker, pipelines, Style Guides, developing R packages, publishing data products, RStudio Snippets, `linter`, `styler`, `rshiny`, `rix`, SQL & R, Quarto, Quarto Websites, Quarto Dashboards, `plumber` APIs, data structures, JSON in R, mermaid diagrams, SQLlite, DuckDB, ...
 
 ## References
+
 -   [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham
 -   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) by Bruno Rodriguez
 -   [R Packages](https://r-pkgs.org/) by Hadley Wickham
 -   [Modern Data Visualization with R](https://rkabacoff.github.io/datavis/) by Robert Kabacoff
-

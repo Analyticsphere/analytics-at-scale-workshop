@@ -9,8 +9,8 @@ website:
     tools:
       - icon: github
         menu:
-          - text: Source Code
-            href: https://github.com/analyticsphere/analytics-at-scale
+          - text: Website Source Code
+            href: https://github.com/Analyticsphere/analytics-at-scale-workshop
           - text: Analyticshpere
             href: https://github.com/analyticsphere
 
