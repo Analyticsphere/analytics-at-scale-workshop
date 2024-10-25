@@ -1,1 +1,0 @@
-# analytics-at-scale-workshop
