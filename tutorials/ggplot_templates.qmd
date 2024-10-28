@@ -1,18 +1,18 @@
 ---
-title: "ggplot_templates"
+title: "ggplot Templates"
 format: html
 editor: visual
 author: Leila Orszag
 date: 11-1-2024
 ---
-```{r}
+
+```{r, warning=FALSE}
 library(rmarkdown)
 ```
 
-
 ## Purpose
 
-In this session, we will review how to use ggplot themes and review a few templates that could be useful for future data visualization. 
+In this session, we will review how to use ggplot themes and review a few templates that could be useful for future data visualization.
 
 ## Colors
 
@@ -60,13 +60,17 @@ select_colors <- function(number) {
 ```
 
 # ggplot
+
 ## Simple ggplot Example
+
 Pull in relevant library
+
 ```{r}
 library(ggplot2)
 ```
 
 Create the data frame
+
 ```{r}
 x = c(10, 10, 20, 20, 30, 30, 40, 40, 50, 50, 60, 60)
 y = c(5, 2, 3, 4, 1, 6, 4, 7, 2, 3, 5, 5)
@@ -75,13 +79,14 @@ data = data.frame(x, y)
 ```
 
 Create our first line graph
+
 ```{r}
 ggplot(data, aes(x = x, y = y)) + 
   geom_point(aes(color = z))+
   geom_line(aes(color = z))
 ```
-This graph is great but doesn't align with our aesthetic.
 
+This graph is great but doesn't align with our aesthetic.
 
 ```{r}
 ggplot(data, aes(x = x, y = y)) + 
@@ -97,10 +102,13 @@ ggplot(data, aes(x = x, y = y)) +
         panel.grid.major = element_line(color = "grey"),
         panel.grid.minor = element_line(color = "grey"))
 ```
+
 Looks much better, but we want to wrap it into a function.
 
 ## Creating & Using Function
+
 Below is a function that you can add to a plot after specifying titles & the number of categories (colors) you need for your graph.
+
 ```{r}
 theme_function = function(title, xlab, ylab, legend_lab, n) {
   # Add any theme specifications in here
@@ -130,7 +138,6 @@ theme_function = function(title, xlab, ylab, legend_lab, n) {
 }
 ```
 
-
 ```{r}
 ggplot(data, aes(x = x, y = y)) + 
   geom_point(aes(color = z)) +
@@ -139,6 +146,7 @@ ggplot(data, aes(x = x, y = y)) +
 ```
 
 ## Histogram
+
 ```{r}
 library(palmerpenguins)
 colnames(penguins)
@@ -149,7 +157,9 @@ ggplot(penguins)+
   geom_histogram(aes(x= bill_length_mm, color = sex, fill = sex), binwidth = 1)+
   theme_function("Title", "X", "Y", "Gender", 3)
 ```
+
 ## Bar Graph
+
 ```{r}
 ggplot(penguins)+
   geom_bar(aes(x= island, color = sex, fill = sex))+
@@ -157,12 +167,15 @@ ggplot(penguins)+
 ```
 
 # plotly
+
 ```{r}
 library(plotly)
 ```
 
 ## Simple plotly Example
+
 Create our first line graph
+
 ```{r}
 plot_ly(data, 
         x = x, 
@@ -189,6 +202,7 @@ plot_ly(data,
 ```
 
 ## Creating and using function
+
 ```{r}
 theme_plotly = function(plot, title, xlab, ylab, legend_lab) {
   plot <- plot %>%  
@@ -203,7 +217,6 @@ plot  # Return the modified plot
 }
 ```
 
-
 ```{r}
 plot = plot_ly(data, 
         x = x, 
@@ -214,4 +227,3 @@ plot = plot_ly(data,
         colors = select_colors(2))
 theme_plotly(plot, "Title", "X", "Y", "Legend")
 ```
-
