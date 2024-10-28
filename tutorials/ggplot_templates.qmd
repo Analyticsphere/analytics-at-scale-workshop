@@ -1,6 +1,6 @@
 ---
 title: "ggplot_templates"
-format: pdf
+format: html
 editor: visual
 author: Leila Orszag
 date: 11-1-2024
