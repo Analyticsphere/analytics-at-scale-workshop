@@ -1,10 +1,16 @@
 ---
 title: "ggplot Templates"
-format: html
-editor: visual
 author: Leila Orszag
-date: 11-1-2024
+date: 11/01/2024
+keywords: 
+  - productivity
+  - modularization
+format: html
+editor: 
+  markdown: 
+    wrap: 72
 ---
+
 
 ## Purpose
 
