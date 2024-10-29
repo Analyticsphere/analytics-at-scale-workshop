@@ -6,10 +6,6 @@ author: Leila Orszag
 date: 11-1-2024
 ---
 
-```{r, warning=FALSE}
-library(rmarkdown)
-```
-
 ## Purpose
 
 In this session, we will review how to use ggplot themes and review a few templates that could be useful for future data visualization.
