@@ -17,11 +17,13 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: scaling_your_r_project.qmd
+        text: Scaling Your R Project
       - meeting-notes.qmd
       - section: Tutorials
         contents: tutorials/*.*md
       - section: External Tutorials
-        contents: 
+        contents:
           - text: "Count by Period w/ DBI"
             url: https://analyticsphere.github.io/c4cp/articles/count_by_period_vignette.html
 

@@ -35,7 +35,7 @@ jobs:
           R_LIBS_USER: ${{ github.workspace }}/R/library
         run: |
           mkdir -p $R_LIBS_USER
-          Rscript -e 'install.packages(c("knitr", "rmarkdown"), repos = "https://cloud.r-project.org/", lib = Sys.getenv("R_LIBS_USER"))'
+          Rscript -e 'install.packages(c("knitr", "rmarkdown", "ggplot", "palmerpenguins", "plotly"), repos = "https://cloud.r-project.org/", lib = Sys.getenv("R_LIBS_USER"))'
 
       - name: Verify R Packages Installation
         run: |
