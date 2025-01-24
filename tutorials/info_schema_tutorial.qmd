@@ -1,0 +1,113 @@
+---
+title: "Tutorial: Querying BigQuery Information Schema"
+author: "Jake Peters"
+date: 2025-01-22
+---
+
+## Introduction
+
+In this tutorial, we demonstrate how to use a Quarto document to query BigQuery's information schema and identify where specific Concept IDs are located in your database. By integrating R and SQL, you learn how to authenticate with BigQuery, execute custom queries, and dynamically construct search queries based on user-specified Concept IDs.
+
+## Prerequisites
+-   Before following this tutorial, ensure you have: R installed on your system.
+-   The following R packages installed: `bigrquery`, `dplyr`, `DBI`, `dbplyr`, and `glue`.
+-   Access to a BigQuery project and dataset with appropriate permissions to query the `INFORMATION_SCHEMA`.
+
+## Table of Contents:
+1.  **Setup and Authentication:** Load libraries, configure authentication, and establish a connection to BigQuery.
+2.  **Executing a Basic SQL Query:** Query the BigQuery `INFORMATION_SCHEMA.COLUMNS` to retrieve metadata that matches a specific pattern.
+3.  **Building a Dynamic Query Function:** Create an R function to dynamically generate SQL queries to search for Concept IDs.
+4.  **Putting It All Together:** Run the function and review the results.
+
+## Step 1: Setup and Authentication
+
+The Quarto document begins with a header that includes essential metadata (title, author, and date). The first code chunk loads the required libraries and prepares the environment.
+
+Next, the following R code chunk loads the necessary libraries and suppresses the output for a clean setup:
+
+```{r, warning=FALSE, message=FALSE}
+library(bigrquery)
+library(dplyr)
+library(DBI)
+library(dbplyr)
+library(glue)
+
+# Authenticate with BigQuery
+bigrquery::bq_auth()
+```
+
+## Step 2: Establishing the Database Connection
+
+Here, we specify the dataset and project, authenticate with BigQuery, and open a connection. Finally, we list the tables in the dataset to confirm that the connection is working:
+
+```{r}
+# Specify dataset and project details
+dataset <- "FlatConnect"
+project <- "nih-nci-dceg-connect-dev"
+
+# Establish connection to BigQuery
+con <- DBI::dbConnect(bigrquery::bigquery(), 
+                      project = project,
+                      dataset = dataset, 
+                      billing = project)
+
+# List available tables to verify the connection
+DBI::dbListTables(con)
+```
+
+## Step 3: Querying the Information Schema
+
+The next code block runs a SQL query on the `INFORMATION_SCHEMA.COLUMNS` to locate columns that contain specific Concept IDs. This query filters columns based on a pattern present in their names:
+
+```{sql, connection=con}
+SELECT 
+  table_catalog, 
+  table_schema, 
+  table_name, 
+  column_name
+FROM FlatConnect.INFORMATION_SCHEMA.COLUMNS
+WHERE column_name 
+  LIKE '%158409298%261863326%';
+```
+
+## Step 4: Building a Dynamic Query Function
+
+To make the querying process more flexible, we define an R function named `get_schema_info`. This function accepts a vector of Concept IDs and a tier (development, staging, or production), constructs the appropriate SQL query dynamically, and returns the result:
+
+```{r}
+get_schema_info <- function(con, cids, tier, dataset = 'FlatConnect') {
+  
+  # Determine the project based on the tier
+  project <- switch(tier,
+                    dev  = "nih-nci-dceg-connect-dev",
+                    stg  = "nih-nci-dceg-connect-stg-5519",
+                    prod = "nih-nci-dceg-connect-prod-6d04")
+  
+  # Collapse the Concept IDs into a single string with "%" delimiters (e.g., "%cid1%cid2%cid3%")
+  cid_str <- paste0("%", paste(cids, collapse = "%"), "%")
+  print(glue("cid_str: {cid_str}\n\n"))
+  
+  # Construct the SQL query dynamically
+  sql <- glue::glue("SELECT table_catalog, table_schema, table_name, column_name
+                       FROM `{project}.{dataset}`.INFORMATION_SCHEMA.COLUMNS
+                      WHERE column_name LIKE '{cid_str}'")
+  print(glue("SQL Query: \n{sql}\n\n"))
+  
+  # Execute the query and store the result
+  result <- DBI::dbGetQuery(con, sql)
+  
+  return(result)
+}
+
+# Execute the function with a vector of Concept IDs and store the output in df
+df <- get_schema_info(con, c('158409298', '261863326'), tier='dev')
+
+# Display the query results
+df
+```
+
+## Conclusion
+
+This tutorial has shown you how to query BigQuery's `INFORMATION_SCHEMA` to find the locations of specific Concept IDs within your database. By combining R scripting and SQL queries within a Quarto document, you can automate schema exploration and streamline the process of database management and analysis.
+
+Feel free to modify the query function or extend this approach for different types of metadata searches. Happy querying!
