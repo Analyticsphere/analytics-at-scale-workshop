@@ -11,10 +11,10 @@ editor:
     wrap: 72
 ---
 
-
 ## Purpose
 
-In this session, we will review how to use ggplot themes and review a few templates that could be useful for future data visualization.
+In this session, we will review how to use ggplot themes and review a
+few templates that could be useful for future data visualization.
 
 ## Colors
 
@@ -109,7 +109,8 @@ Looks much better, but we want to wrap it into a function.
 
 ## Creating & Using Function
 
-Below is a function that you can add to a plot after specifying titles & the number of categories (colors) you need for your graph.
+Below is a function that you can add to a plot after specifying titles &
+the number of categories (colors) you need for your graph.
 
 ```{r}
 theme_function = function(title, xlab, ylab, legend_lab, n) {
