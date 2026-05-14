@@ -1,5 +1,5 @@
 -- Quadrennial Review Report
--- Request (via Email from Amelia to: Autumn Hullings, Nicole Gerlanc, Michelle Brotzman
+-- Request (via email from Amelia Sager to: Autumn Hullings, Nicole Gerlanc, Michelle Brotzman)
 -- Re: Quadrennial Review Data Request
 -- Connect is required to complete a Quadrennial Review every 4 years for the project and we are preparing for the first submission. This is separate from the annual CIER data submission that Kelsey helps us provide the data for. For the Quadrennial Review, we are being asked to provide just a couple of data points. 
 -- Date of first verified participant in Connect – we opened enrollment on 07/21/2021, so should be somewhere around that date but need the exact date.
@@ -9,6 +9,7 @@
 
 
 -- START QUERY: Date of first verified participant and date verified participant count reached 50,000
+-- Data filters: WHERE Verification Status = Verified, Verification D/T (d_914594314) is not null and Connect ID is not null
 
 WITH verified_participants AS (
   SELECT
